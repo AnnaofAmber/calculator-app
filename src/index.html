@@ -3,24 +3,65 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
   <title>Frontend Mentor | Calculator app</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./scss/index.scss">
 </head>
-<body>
-
-
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+<body class="body">
+<header class="header">
+<div class="container">
+  <div class="header-content">
+  <h1 class="app-title">calc</h1>
+  <div class="theme">
+    <h2 class="theme-title">theme</h2>
+    <div class="switcher">
+      <div class="switcher-position"><span>1</span><span>2</span><span>3</span></div>
+      <div class="toggle-checkbox-wrapper">
+        <input class="toggle-checkbox" type="checkbox" id="toggle" />
+        <label class="slider-btn" for="toggle"></label>
+      </div>
+    </div>
   </div>
+</div>
+</div>
+</header>
+<section class="section-calc">
+  <div class="container container-calc">
+  <p class="result">333 3983</p>
+  <div class="keyboard">
+<ul class="list list-main-keys">
+  <li class="list-item"><button class="btn btn-number" type="button">7</button></li>
+  <li class="list-item"><button class="btn btn-number" type="button">8</button></li>
+  <li class="list-item"><button class="btn btn-number" type="button">9</button></li>
+  <li class="list-item"><button class="btn btn-delete" type="button">del</button></li>
+  <li class="list-item"><button class="btn btn-number" type="button">4</button></li>
+  <li class="list-item"><button class="btn btn-number" type="button">5</button></li>
+  <li class="list-item"><button class="btn btn-number" type="button">6</button></li>
+  <li class="list-item"><button class="btn btn-plus" type="button">+</button></li>
+  <li class="list-item"><button class="btn btn-number" type="button">1</button></li>
+  <li class="list-item"><button class="btn btn-number" type="button">2</button></li>
+  <li class="list-item"><button class="btn btn-number" type="button">3</button></li>
+  <li class="list-item"><button class="btn btn-minus" type="button">-</button></li>
+  <li class="list-item"><button class="btn btn-period" type="button">.</button></li>
+  <li class="list-item"><button class="btn btn-number" type="button">0</button></li>
+  <li class="list-item"><button class="btn btn-divide" type="button">/</button></li>
+  <li class="list-item"><button class="btn btn-multiply" type="button">*</button></li>
+</ul>
+<ul class="list list-action-btn">
+  <li><button class="btn-action btn-reset" type="button">reset</button></li>
+  <li><button class="btn-action btn-equel">=</button></li>
+</ul>
+</div>
+</div>
+</section>
+  <div class="container">
+  <div class="attribution">
+    <div class="fe-mentor">Challenge by <a class="link" href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. </div>
+    <div class="ann">Coded by <a class="link" href="#">Anna Boichuk</a>.</div>
+  </div></div>
+  <script src="./js/index.js" type="module"></script>
 </body>
 </html>

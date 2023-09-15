@@ -1,0 +1,63 @@
+:root{
+    // light theme
+--dark-grey: #3A4663;
+--dark-blue: #181F33;
+--light-blue: #647198;
+--light-blue-shading:#414E73;
+--white: #FFFFFF;
+--grey: #434A59;
+--blue:#242D44;
+--beige: #EAE3DC;
+--beige-shading: #B3A497;
+--accent-red: #D03F2F;
+--accent-red-shading: #93261A; 
+
+
+}
+
+.body{
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 700;
+    background-color: var(--dark-grey);
+    color: var(--white);
+    margin: 0;
+}
+
+.link{
+    text-decoration: none;
+    color: var(--dark-blue);
+    letter-spacing: -0.001em;
+}
+
+.link:hover{
+    color: var(--accent-red);
+}
+
+.link:focus{
+    color: var(--accent-red);
+}
+
+.list{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    min-width: 320px;
+    max-width: 375px;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.attribution{
+    padding-top: 30px;
+    padding-bottom: 20px;
+    
+}
+
+.fe-mentor {
+    margin-bottom: 10px;
+}
+.ann {
+}

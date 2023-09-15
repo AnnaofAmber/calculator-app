@@ -1,0 +1,102 @@
+
+.header{
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 32px;
+    }
+    
+    .header-content{
+        display: flex;
+        gap: 130px;
+    }
+    
+    .app-title{
+        margin: 0;
+        padding-top: 10px;
+        padding-bottom: 3px;
+    
+        font-size: 32px;
+        
+    }
+    
+    .theme{
+        display: flex;
+        align-items: end;
+        gap: 26px;
+    }
+    
+    .theme-title{
+        margin: 0;
+        font-size: 12px;
+        text-transform: uppercase;
+
+        padding-bottom: 5px;
+    }
+
+    .switcher{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .switcher-position{
+        font-size: 12px;
+
+        padding-left: 10px;
+        padding-right: 10px;
+
+        display: flex;
+        justify-content: space-between;
+
+    }
+
+    .slider-btn {
+        position: relative;
+    
+    }
+    
+    .slider-btn::before {
+        bottom: 0;
+        content: '';
+        display: inline-block;
+        margin: auto;
+        background-color: var(--blue);
+        border-radius: 50px;
+        top: 0;
+        height: 26px;
+        width: 71px;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.493);
+    }
+    
+    
+    /* circle */
+    .slider-btn::after {
+        bottom: 0;
+        content: '';
+        display: inline-block;
+        margin: auto;
+        background-color: var(--accent-red);
+        border-radius: 50%;
+        position: absolute;
+        top: -20px;
+        left: 5px;
+        height: 16px;
+        width: 16px;
+        transition: .4s;
+        
+    }
+    
+    
+    .toggle-checkbox {
+        /* hide the "default" checkbox/appearance */
+        display: none;
+    }
+    
+    .toggle-checkbox:checked~.slider-btn:before {
+        background-color: var(--almost-white);
+    }
+    
+    .toggle-checkbox:checked~.slider-btn:after {
+        background-color: maroon;
+        transform: translateX(11px);
+    }
