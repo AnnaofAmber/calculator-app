@@ -45,9 +45,15 @@
 
 .container{
     min-width: 320px;
-    max-width: 375px;
+    max-width: 327px;
     padding-left: 24px;
     padding-right: 24px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media only screen and (min-width: 768px) {
+    max-width: 540px;
+    }
 }
 
 .attribution{

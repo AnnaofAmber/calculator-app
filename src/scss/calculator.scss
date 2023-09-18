@@ -11,6 +11,13 @@
 
   text-align: right;
   font-size: 40px;
+
+  @media only screen and (min-width: 768px) {
+    padding-top: 40px;
+    padding-right: 32px;
+    padding-bottom: 36px;
+    font-size: 56px;
+  }
 }
 
 .keyboard {
@@ -18,6 +25,11 @@
   padding-bottom: 24px;
   background-color: var(--blue);
   border-radius: 10px;
+
+  @media only screen and (min-width: 768px) {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
 }
 
 .list-main-keys {
@@ -27,9 +39,16 @@
   column-gap: 13px;
   row-gap: 13px;
   margin-bottom: 13px;
+
+  @media only screen and (min-width: 768px) {
+    column-gap: 25px;
+    row-gap: 24px;
+    margin-bottom: 24px;
+  }
 }
 
 .btn {
+  font-family: inherit;
   width: 60px;
   height: 64px;
 
@@ -40,6 +59,13 @@
   background-color: var(--beige);
   color: var(--grey);
   font-size: 32px;
+  
+  @media only screen and (min-width: 768px) {
+    width: 101px;
+
+    font-size: 40px;
+  
+  }
 }
 
 .btn-delete {
@@ -52,11 +78,17 @@
 }
 
 .list-action-btn {
+  
   display: flex;
   justify-content: center;
   gap: 13px;
+
+  @media only screen and (min-width: 768px) {
+    gap: 24px;
+  }
 }
 .btn-action {
+  font-family: inherit;
   width: 133px;
   height: 64px;
 
@@ -67,6 +99,13 @@
 
   color: var(--white);
   font-size: 20px;
+  letter-spacing: -0.001em;
+
+  @media only screen and (min-width: 768px) {
+    width: 227px;
+
+    font-size: 28px;
+  }
 }
 .btn-reset {
     text-transform: uppercase;
