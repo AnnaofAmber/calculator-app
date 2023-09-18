@@ -18,11 +18,11 @@
 --very-light-grey:#E6E6E6;
 --dark-moderate-cyan: #378187;
 --very-dark-cyan: #1B6066;
---orange: #C85402;
 --dark-orange: #873901;
 --light-grayish-yellow: #E5E4E1;
 --dark-grayish-orange:#A79E91;
 --very-dark-grayish-yellow: #36362C;
+--very-light: #EEEEEE;
 
 // violet theme
 
@@ -45,6 +45,10 @@
     background-color: var(--dark-grey);
     color: var(--white);
     margin: 0;
+}
+.body-light{
+    background-color: var(--very-light-grey);
+    color: var(--very-dark-grayish-yellow);
 }
 
 .link{

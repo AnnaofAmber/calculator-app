@@ -1,3 +1,5 @@
+const body = document.querySelector('body')
+
 const switcherBasic = document.getElementById('basic');
 const labelBasic= document.querySelector('.label-basic')
 
@@ -13,11 +15,13 @@ function onSwitch() {
         labelLight.classList.remove('slider-btn')
         labelViolet.classList.remove('slider-btn')
         labelBasic.classList.add('slider-btn')
+        onBasic()
     }
     if(switcherLight.checked){
         labelBasic.classList.remove('slider-btn')
         labelViolet.classList.remove('slider-btn')
         labelLight.classList.add('slider-btn')
+        onLight()
     }
 
     if(switcherViolet.checked){
@@ -30,3 +34,17 @@ function onSwitch() {
 switcherBasic.addEventListener('change', onSwitch)
 switcherLight.addEventListener('change', onSwitch)
 switcherViolet.addEventListener('change', onSwitch)
+
+
+function onBasic(){
+body.classList.remove('body-light')
+}
+
+function onLight(){
+body.classList.add('body-light')
+
+}
+
+function onViolet(){
+
+}

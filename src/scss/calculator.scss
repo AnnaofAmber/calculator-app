@@ -20,6 +20,12 @@
   }
 }
 
+.body-light{
+  .result{
+    background-color: var(--very-light);
+  }
+}
+
 .keyboard {
   padding-top: 24px;
   padding-bottom: 24px;
@@ -29,6 +35,12 @@
   @media only screen and (min-width: 768px) {
     padding-top: 32px;
     padding-bottom: 32px;
+  }
+}
+
+.body-light{
+  .keyboard{
+    background-color: var(--light-grey);
   }
 }
 
@@ -67,6 +79,13 @@
   
   }
 }
+.body-light{
+  .btn{
+  box-shadow: 0px -4px 0px 0px var(--dark-grayish-orange) inset;
+  background-color: var(--light-grayish-yellow);
+  color: var(--very-dark-grayish-yellow);
+  }
+}
 
 .btn-delete {
   box-shadow: 0px -4px 0px 0px var(--light-blue-shading) inset;
@@ -75,6 +94,15 @@
   color: var(--white);
   font-size: 20px;
   text-transform: uppercase;
+}
+
+.body-light{
+  .btn-delete{
+    box-shadow: 0px -4px 0px 0px var(--very-dark-cyan) inset;
+
+  background-color: var(--dark-moderate-cyan);
+  color: var(--white);
+  }
 }
 
 .list-action-btn {
@@ -107,12 +135,28 @@
     font-size: 28px;
   }
 }
+
+.body-light{
+  .btn-action {
+    box-shadow: 0px -4px 0px 0px var(--very-dark-cyan) inset;
+
+  background-color: var(--dark-moderate-cyan);
+  color: var(--white);
+  }
+}
 .btn-reset {
     text-transform: uppercase;
 }
 .btn-equel {
     background: var(--accent-red);
     box-shadow: 0px -4px 0px 0px var(--accent-red-shading) inset;
-  
-    color: var(--white);
+
+}
+
+.body-light{
+  .btn-equel{
+    background: var(--grayish-red);
+    box-shadow: 0px -4px 0px 0px var(--dark-orange) inset;
+
+  }
 }
