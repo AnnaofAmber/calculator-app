@@ -28,6 +28,7 @@ function onSwitch() {
         labelBasic.classList.remove('slider-btn')
         labelLight.classList.remove('slider-btn')
         labelViolet.classList.add('slider-btn')
+        onViolet()
     }
 }
 
@@ -37,14 +38,17 @@ switcherViolet.addEventListener('change', onSwitch)
 
 
 function onBasic(){
+body.classList.remove('body-violet')
 body.classList.remove('body-light')
 }
 
 function onLight(){
+body.classList.remove('body-violet')
 body.classList.add('body-light')
 
 }
 
 function onViolet(){
-
+body.classList.remove('body-light')
+body.classList.add('body-violet')
 }

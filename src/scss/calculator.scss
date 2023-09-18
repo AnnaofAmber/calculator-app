@@ -26,6 +26,12 @@
   }
 }
 
+.body-violet{
+  .result{
+    background-color: var(--violet);
+  }
+}
+
 .keyboard {
   padding-top: 24px;
   padding-bottom: 24px;
@@ -41,6 +47,12 @@
 .body-light{
   .keyboard{
     background-color: var(--light-grey);
+  }
+}
+
+.body-violet{
+  .keyboard{
+    background-color: var(--violet);
   }
 }
 
@@ -87,6 +99,14 @@
   }
 }
 
+.body-violet{
+  .btn{
+  box-shadow: 0px -4px 0px 0px var(--dark-magenta) inset;
+  background-color: var(--darker-violet);
+  color: var(--light-yellow);
+  }
+}
+
 .btn-delete {
   box-shadow: 0px -4px 0px 0px var(--light-blue-shading) inset;
 
@@ -94,6 +114,10 @@
   color: var(--white);
   font-size: 20px;
   text-transform: uppercase;
+
+  @media only screen and (min-width: 768px) {
+    font-size: 28px;
+  }
 }
 
 .body-light{
@@ -101,6 +125,15 @@
     box-shadow: 0px -4px 0px 0px var(--very-dark-cyan) inset;
 
   background-color: var(--dark-moderate-cyan);
+  color: var(--white);
+  }
+}
+
+.body-violet{
+  .btn-delete{
+    box-shadow: 0px -4px 0px 0px var(--vivid-magenta) inset;
+
+  background-color: var(--dark-violet);
   color: var(--white);
   }
 }
@@ -144,6 +177,16 @@
   color: var(--white);
   }
 }
+
+.body-violet{
+  .btn-action{
+    box-shadow: 0px -4px 0px 0px var(--vivid-magenta) inset;
+
+  background-color: var(--dark-violet);
+  color: var(--white);
+  }
+}
+
 .btn-reset {
     text-transform: uppercase;
 }
@@ -158,5 +201,13 @@
     background: var(--grayish-red);
     box-shadow: 0px -4px 0px 0px var(--dark-orange) inset;
 
+  }
+}
+
+.body-violet{
+  .btn-equel{
+    background: var(--soft-cyan);
+    box-shadow: 0px -4px 0px 0px var(--pure-cyan) inset;
+    color: var(--very-dark-blue);
   }
 }
