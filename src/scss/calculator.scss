@@ -190,14 +190,14 @@
 .btn-reset {
     text-transform: uppercase;
 }
-.btn-equel {
+.btn-equals {
     background: var(--accent-red);
     box-shadow: 0px -4px 0px 0px var(--accent-red-shading) inset;
 
 }
 
 .body-light{
-  .btn-equel{
+  .btn-equals{
     background: var(--grayish-red);
     box-shadow: 0px -4px 0px 0px var(--dark-orange) inset;
 
@@ -205,7 +205,7 @@
 }
 
 .body-violet{
-  .btn-equel{
+  .btn-equals{
     background: var(--soft-cyan);
     box-shadow: 0px -4px 0px 0px var(--pure-cyan) inset;
     color: var(--very-dark-blue);
