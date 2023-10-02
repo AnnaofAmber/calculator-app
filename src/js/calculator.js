@@ -3,20 +3,23 @@ const btnNumbers = document.querySelectorAll('.btn-number')
 const btnOperations = document.querySelectorAll('.operation')
 const btnEquals = document.querySelector('.btn-equals')
 const btnReset = document.querySelector('.btn-reset')
-let operand = []
+let operands = []
 const secondNumber = []
 let total=0
 let plus = false
+let equals = false
 
 function onNumberClick(event){
-operand.push(event.currentTarget.textContent)
-result.textContent = operand.map(e=>e).join('')
-
-if(plus=true){
-    total+= Number(operand.map(e=>e).join(''))
-    console.log(total);
+operands.push(Number(event.currentTarget.textContent))
+console.log(operands);
+result.textContent = event.currentTarget.textContent
+console.log(plus);
+if(plus){
+onPlus()
 }
-console.log(result.textContent);
+if(equals){
+    operands = []
+}
 }
 
 
@@ -25,24 +28,35 @@ console.log(result.textContent);
 function onOperationClick(event){
     
     result.textContent = event.currentTarget.textContent
-    const firstNumber = operand
-    
+
     if(event.currentTarget.textContent==='+'){
-        onPlus()
+        if (!plus) {
+            onPlus()
+        }
     }
-    operand=[]
-    console.log(event.currentTarget.textContent);
+    operands=[]
 
 }
 
 function onPlus(){
+const numbers = []
+numbers.push(operands)
+console.log(numbers);
 plus = true
+
+const sum = numbers.map(e => {
+    return total+ Number(e)
+})
+console.log(sum);
+total = Number(sum)
+console.log(total);
 
 }
 
 
 
 function onEquals(){
+    equals = true
     result.textContent = total
 }
 
