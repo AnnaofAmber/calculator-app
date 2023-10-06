@@ -4,22 +4,15 @@ const btnOperations = document.querySelectorAll('.operation');
 const btnEquals = document.querySelector('.btn-equals');
 const btnReset = document.querySelector('.btn-reset');
 let operands = [];
-let numberMinus;
+let numbersMinus = [];
 let total = 0;
 let plus = false;
 let minus = false;
+let nM = [];
 
 function onNumberClick(event) {
-  if (!minus) {
-    numberMinus = Number(event.currentTarget.textContent);
-  }
-  if (total !== 0) {
-    numberMinus = 0;
-  }
-
   operands.push(Number(event.currentTarget.textContent));
   result.textContent = operands.map(e => e).join('');
-  console.log(minus);
   if (plus) {
     onPlus();
   }
@@ -30,7 +23,6 @@ function onNumberClick(event) {
 
 function onOperationClick(event) {
   result.textContent = event.currentTarget.textContent;
-
   if (event.currentTarget.textContent === '+') {
     if (!plus) {
       onPlus();
@@ -46,25 +38,39 @@ function onOperationClick(event) {
 }
 
 function onPlus() {
+  if (minus) {
+    minus = false;
+    operands = [];
+  }
   const numbers = [];
   numbers.push(operands);
   plus = true;
-  const sum = numbers.map(e => total + Number(e));
+  const sum = numbers.map(e => {
+    return total + Number(e);
+  });
   total = Number(sum);
 }
 
 function onMinus() {
+  if (plus) {
+    plus = false;
+    operands = [];
+  }
   const numbers = [];
   numbers.push(operands);
-  let nM = numberMinus;
   minus = true;
   const difference = numbers.map(e => {
-    total = total - Number(e) + nM;
-    return total;
+    numbersMinus.push(e);
+    if (nM.length === 0) {
+      nM.push(e);
+    }
+
+    return total === 0 ? nM - e : total - e;
   });
 
-  console.log(difference);
-  total = Number(difference);
+  if (numbersMinus.length >= 2) {
+    total = Number(difference);
+  }
 }
 
 function onEquals() {
