@@ -11,18 +11,16 @@ let minus = false;
 let multiply = false
 let nM = [];
 
+
 function onNumberClick(event) {
+  
   operands.push(Number(event.currentTarget.textContent));
-  result.textContent = operands.map(e => e).join('');
-  if (plus) {
-    onPlus();
-  }
-  if (minus) {
-    onMinus();
-  }
-  if(multiply){
-    onMultiply()
-  }
+  const targetNumber = operands.map(e => e).join('');
+  result.textContent = targetNumber
+  operands.splice(0, 1, Number(targetNumber))
+  operands.splice(1,1)  
+
+ 
 }
 
 function onOperationClick(event) {
@@ -49,22 +47,33 @@ function onOperationClick(event) {
 }
 
 function onPlus() {
-  if (minus) {
+  if (minus || multiply) {
     minus = false;
+    multiply = false
     operands = [];
   }
+
+  if(plus){
+    plus = false
+  }
+
   const numbers = [];
   numbers.push(operands);
+
   plus = true;
   const sum = numbers.map(e => {
+
     return total + Number(e);
   });
+
   total = Number(sum);
+  
 }
 
 function onMinus() {
-  if (plus) {
+  if (plus || multiply) {
     plus = false;
+    multiply = false;
     operands = [];
   }
   const numbers = [];
@@ -75,7 +84,6 @@ function onMinus() {
     if (nM.length === 0) {
       nM.push(e);
     }
-
     return total === 0 ? nM - e : total - e;
   });
 
@@ -85,6 +93,11 @@ function onMinus() {
 }
 
 function onMultiply(){
+  if (plus || minus) {
+    plus = false;
+    minus = false;
+    operands = [1];
+  }
   const numbers = [];
   numbers.push(operands);
   multiply = true;
@@ -93,10 +106,11 @@ function onMultiply(){
     if(total ===0 ){
       total = 1
     }
+
     return total * e
   })
 
-  total = product
+  total = Number(product)
 
 }
 
@@ -104,7 +118,20 @@ function onMultiply(){
 
 
 function onEquals() {
+  if (plus) {
+    onPlus(); 
+  }
+
+  if (minus) {
+    onMinus();
+  }
+  if(multiply){
+    onMultiply()
+  }
+
+  operands = []
   result.textContent = total;
+
 }
 
 btnNumbers.forEach(number => {
