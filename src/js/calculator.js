@@ -8,6 +8,7 @@ let numbersMinus = [];
 let total = 0;
 let plus = false;
 let minus = false;
+let multiply = false
 let nM = [];
 
 function onNumberClick(event) {
@@ -18,6 +19,9 @@ function onNumberClick(event) {
   }
   if (minus) {
     onMinus();
+  }
+  if(multiply){
+    onMultiply()
   }
 }
 
@@ -34,6 +38,13 @@ function onOperationClick(event) {
       onMinus();
     }
   }
+
+  if(event.currentTarget.textContent === 'x'){
+    if(!multiply){
+      onMultiply();
+    }
+  }
+
   operands = [];
 }
 
@@ -72,6 +83,25 @@ function onMinus() {
     total = Number(difference);
   }
 }
+
+function onMultiply(){
+  const numbers = [];
+  numbers.push(operands);
+  multiply = true;
+
+  const product = numbers.map(e =>{
+    if(total ===0 ){
+      total = 1
+    }
+    return total * e
+  })
+
+  total = product
+
+}
+
+
+
 
 function onEquals() {
   result.textContent = total;
