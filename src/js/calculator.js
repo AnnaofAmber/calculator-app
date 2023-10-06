@@ -4,7 +4,7 @@ const btnOperations = document.querySelectorAll('.operation');
 const btnEquals = document.querySelector('.btn-equals');
 const btnReset = document.querySelector('.btn-reset');
 let operands = [];
-let numberMinus ;
+let numberMinus;
 let total = 0;
 let plus = false;
 let minus = false;
@@ -12,11 +12,10 @@ let minus = false;
 function onNumberClick(event) {
   if (!minus) {
     numberMinus = Number(event.currentTarget.textContent);
-  } 
-  if(total !== 0){
-    numberMinus = 0
   }
-
+  if (total !== 0) {
+    numberMinus = 0;
+  }
 
   operands.push(Number(event.currentTarget.textContent));
   result.textContent = operands.map(e => e).join('');
@@ -57,24 +56,19 @@ function onPlus() {
 function onMinus() {
   const numbers = [];
   numbers.push(operands);
-  let nM = numberMinus
+  let nM = numberMinus;
   minus = true;
-  const difference = numbers.map(
-    e => {
-       total = total - Number(e) +nM
-       
-       return total;
-    }
+  const difference = numbers.map(e => {
+    total = total - Number(e) + nM;
+    return total;
+  });
 
-  );
- 
   console.log(difference);
   total = Number(difference);
 }
 
 function onEquals() {
   result.textContent = total;
-
 }
 
 btnNumbers.forEach(number => {
