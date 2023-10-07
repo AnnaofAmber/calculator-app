@@ -9,8 +9,12 @@ let total = 0;
 let plus = false;
 let minus = false;
 let multiply = false
+let divide = false
 let nM = [];
+let nD =[]
+let numberDivide =[]
 
+console.log(total);
 
 function onNumberClick(event) {
   
@@ -19,8 +23,7 @@ function onNumberClick(event) {
   result.textContent = targetNumber
   operands.splice(0, 1, Number(targetNumber))
   operands.splice(1,1)  
-
- 
+  console.log(total);
 }
 
 function onOperationClick(event) {
@@ -43,6 +46,12 @@ function onOperationClick(event) {
     }
   }
 
+  if(event.currentTarget.textContent === '/'){
+    if(!divide){
+      onDivide()
+    }
+  }
+console.log(total);
   operands = [];
 }
 
@@ -114,6 +123,24 @@ function onMultiply(){
 
 }
 
+function onDivide(){
+  const numbers = [];
+  numbers.push(operands);
+  divide = true;
+
+const quotient = numbers.map(e => {
+numberDivide.push(e)
+  if(nD.length === 0){
+    nD.push(e)
+  }
+
+ return numberDivide.length > 2? total/e: nD/e 
+
+}) 
+
+total = Number(quotient)
+}
+
 
 
 
@@ -127,6 +154,9 @@ function onEquals() {
   }
   if(multiply){
     onMultiply()
+  }
+  if(divide){
+    onDivide()
   }
 
   operands = []
