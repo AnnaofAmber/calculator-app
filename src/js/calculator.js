@@ -20,7 +20,7 @@ function onNumberClick(event) {
   
   operands.push(Number(event.currentTarget.textContent));
   const targetNumber = operands.map(e => e).join('');
-  result.textContent = targetNumber
+  result.textContent = Number(targetNumber)
   operands.splice(0, 1, Number(targetNumber))
   operands.splice(1,1)  
   console.log(total);
@@ -56,9 +56,10 @@ console.log(total);
 }
 
 function onPlus() {
-  if (minus || multiply) {
+  if (minus || multiply || divide) {
     minus = false;
-    multiply = false
+    multiply = false;
+    divide = false;
     operands = [];
   }
 
@@ -80,9 +81,10 @@ function onPlus() {
 }
 
 function onMinus() {
-  if (plus || multiply) {
+  if (plus || multiply || divide) {
     plus = false;
     multiply = false;
+    divide = false;
     operands = [];
   }
   const numbers = [];
@@ -102,9 +104,10 @@ function onMinus() {
 }
 
 function onMultiply(){
-  if (plus || minus) {
+  if (plus || minus || divide) {
     plus = false;
     minus = false;
+    divide = false;
     operands = [1];
   }
   const numbers = [];
@@ -124,6 +127,15 @@ function onMultiply(){
 }
 
 function onDivide(){
+  console.log(nD);
+  if (plus || minus || multiply) {
+    plus = false;
+    minus = false;
+    multiply = false;
+    operands = [1];
+    nD.push(total)
+  }
+
   const numbers = [];
   numbers.push(operands);
   divide = true;
@@ -133,7 +145,6 @@ numberDivide.push(e)
   if(nD.length === 0){
     nD.push(e)
   }
-
  return numberDivide.length > 2? total/e: nD/e 
 
 }) 
