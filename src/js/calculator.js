@@ -15,9 +15,10 @@ let nD =[]
 let numberDivide =[]
 
 console.log(total);
+console.log(operands);
+console.log(total);
 
 function onNumberClick(event) {
-  
   operands.push(Number(event.currentTarget.textContent));
   const targetNumber = operands.map(e => e).join('');
   result.textContent = Number(targetNumber)
@@ -175,6 +176,20 @@ function onEquals() {
 
 }
 
+function onReset(){
+  result.textContent = 0
+  operands = [];
+  numbersMinus = [];
+   total = 0;
+   plus = false;
+   minus = false;
+   multiply = false
+   divide = false
+   nM = [];
+   nD =[]
+   numberDivide =[]
+}
+
 btnNumbers.forEach(number => {
   number.addEventListener('click', onNumberClick);
 });
@@ -184,3 +199,5 @@ btnOperations.forEach(operation => {
 });
 
 btnEquals.addEventListener('click', onEquals);
+
+btnReset.addEventListener('click', onReset)
