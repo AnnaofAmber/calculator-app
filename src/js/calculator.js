@@ -3,6 +3,7 @@ const btnNumbers = document.querySelectorAll('.btn-number');
 const btnOperations = document.querySelectorAll('.operation');
 const btnEquals = document.querySelector('.btn-equals');
 const btnReset = document.querySelector('.btn-reset');
+const btnPeriod = document.querySelector('.btn-period')
 let operands = [];
 let numbersMinus = [];
 let total = 0;
@@ -14,17 +15,22 @@ let nM = [];
 let nD =[]
 let numberDivide =[]
 
-console.log(total);
-console.log(operands);
-console.log(total);
 
 function onNumberClick(event) {
   operands.push(Number(event.currentTarget.textContent));
   const targetNumber = operands.map(e => e).join('');
+
+ if(result.textContent.includes('.')){
+  const decimal = operands.map(e=>e).join(".")
+  result.textContent = Number(decimal)
+  operands.splice(0, 1, Number(decimal))
+  operands.splice(1,1)
+ }
+ else { 
   result.textContent = Number(targetNumber)
   operands.splice(0, 1, Number(targetNumber))
-  operands.splice(1,1)  
-  console.log(total);
+  operands.splice(1,1)  }
+
 }
 
 function onOperationClick(event) {
@@ -52,7 +58,6 @@ function onOperationClick(event) {
       onDivide()
     }
   }
-console.log(total);
   operands = [];
 }
 
@@ -128,7 +133,6 @@ function onMultiply(){
 }
 
 function onDivide(){
-  console.log(nD);
   if (plus || minus || multiply) {
     plus = false;
     minus = false;
@@ -190,6 +194,10 @@ function onReset(){
    numberDivide =[]
 }
 
+function onPeriod(){
+  result.textContent += '.'
+}
+
 btnNumbers.forEach(number => {
   number.addEventListener('click', onNumberClick);
 });
@@ -201,3 +209,5 @@ btnOperations.forEach(operation => {
 btnEquals.addEventListener('click', onEquals);
 
 btnReset.addEventListener('click', onReset)
+
+btnPeriod.addEventListener('click', onPeriod)
