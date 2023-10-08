@@ -4,13 +4,17 @@ const btnOperations = document.querySelectorAll('.operation');
 const btnEquals = document.querySelector('.btn-equals');
 const btnReset = document.querySelector('.btn-reset');
 const btnPeriod = document.querySelector('.btn-period')
+const btnDelete = document.querySelector('.btn-delete')
+
 let operands = [];
 let numbersMinus = [];
 let total = 0;
 let plus = false;
 let minus = false;
-let multiply = false
-let divide = false
+let multiply = false;
+let divide = false;
+let del = [];
+let deleted =[]
 let nM = [];
 let nD =[]
 let numberDivide =[]
@@ -18,7 +22,8 @@ let numberDivide =[]
 
 function onNumberClick(event) {
   operands.push(Number(event.currentTarget.textContent));
-  const targetNumber = operands.map(e => e).join('');
+  const targetNumber = operands.map(e => {
+    return e}).join('');
 
  if(result.textContent.includes('.')){
   const decimal = operands.map(e=>e).join(".")
@@ -30,6 +35,8 @@ function onNumberClick(event) {
   result.textContent = Number(targetNumber)
   operands.splice(0, 1, Number(targetNumber))
   operands.splice(1,1)  }
+
+del.push(Number(result.textContent))
 
 }
 
@@ -59,6 +66,7 @@ function onOperationClick(event) {
     }
   }
   operands = [];
+  del = []
 }
 
 function onPlus() {
@@ -157,9 +165,6 @@ numberDivide.push(e)
 total = Number(quotient)
 }
 
-
-
-
 function onEquals() {
   if (plus) {
     onPlus(); 
@@ -198,6 +203,27 @@ function onPeriod(){
   result.textContent += '.'
 }
 
+function onDelete(){
+let d 
+
+for(let i=0; i<=del.length; i+=1){
+d = del[del.length-1].toString()
+}
+
+for (let i = 0; i < d.length-1; i+=1) {
+  deleted.push(d[i])
+  
+}
+
+
+result.textContent = Number(deleted.join(''))
+operands.push(Number(result.textContent))
+console.log(operands);
+console.log(del);
+}
+
+
+
 btnNumbers.forEach(number => {
   number.addEventListener('click', onNumberClick);
 });
@@ -211,3 +237,5 @@ btnEquals.addEventListener('click', onEquals);
 btnReset.addEventListener('click', onReset)
 
 btnPeriod.addEventListener('click', onPeriod)
+
+btnDelete.addEventListener('click', onDelete)
