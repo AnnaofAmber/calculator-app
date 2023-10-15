@@ -7,36 +7,51 @@ const btnPeriod = document.querySelector('.btn-period')
 const btnDelete = document.querySelector('.btn-delete')
 
 let operands = [];
-let numbersMinus = [];
 let total = 0;
+
 let plus = false;
 let minus = false;
 let multiply = false;
 let divide = false;
+let deleted = false
+let period = false
+
+// for delete func
 let del = [];
-let deleted =[]
+
+// for minus func
 let nM = [];
+let numbersMinus = [];
+
+// for delete func
 let nD =[]
 let numberDivide =[]
 
 
 function onNumberClick(event) {
-  operands.push(Number(event.currentTarget.textContent));
-  const targetNumber = operands.map(e => {
+  let targetNumber
+if(deleted){
+   operands.splice(0, 1, del);
+}
+else{
+  operands.push(Number(event.currentTarget.textContent))}
+   targetNumber = operands.map(e => {
     return e}).join('');
+  
 
- if(result.textContent.includes('.')){
+ if(period === true){
   const decimal = operands.map(e=>e).join(".")
   result.textContent = Number(decimal)
   operands.splice(0, 1, Number(decimal))
   operands.splice(1,1)
+  period = false
  }
  else { 
   result.textContent = Number(targetNumber)
   operands.splice(0, 1, Number(targetNumber))
-  operands.splice(1,1)  }
+  operands.splice(1,1)  
+}
 
-del.push(Number(result.textContent))
 
 }
 
@@ -65,16 +80,20 @@ function onOperationClick(event) {
       onDivide()
     }
   }
-  operands = [];
   del = []
+  operands = [];
 }
 
 function onPlus() {
-  if (minus || multiply || divide) {
+  if (minus || multiply || divide|| deleted) {
     minus = false;
     multiply = false;
     divide = false;
     operands = [];
+    if(deleted){
+      operands = del
+      deleted = false
+    }
   }
 
   if(plus){
@@ -95,17 +114,24 @@ function onPlus() {
 }
 
 function onMinus() {
-  if (plus || multiply || divide) {
+  console.log(deleted);
+  if (plus || multiply || divide || deleted) {
     plus = false;
     multiply = false;
     divide = false;
     operands = [];
+
+    if(deleted){
+      operands = del
+      deleted = false
+    }
   }
   const numbers = [];
   numbers.push(operands);
   minus = true;
   const difference = numbers.map(e => {
     numbersMinus.push(e);
+
     if (nM.length === 0) {
       nM.push(e);
     }
@@ -118,11 +144,16 @@ function onMinus() {
 }
 
 function onMultiply(){
-  if (plus || minus || divide) {
+  if (plus || minus || divide || deleted) {
     plus = false;
     minus = false;
     divide = false;
     operands = [1];
+
+    if(deleted){
+      operands = del
+      deleted = false
+    }
   }
   const numbers = [];
   numbers.push(operands);
@@ -141,12 +172,18 @@ function onMultiply(){
 }
 
 function onDivide(){
-  if (plus || minus || multiply) {
+  if (plus || minus || multiply || deleted) {
     plus = false;
     minus = false;
     multiply = false;
     operands = [1];
     nD.push(total)
+
+    if(deleted){
+      nD =[]
+      operands = del
+      deleted = false
+    }
   }
 
   const numbers = [];
@@ -179,9 +216,8 @@ function onEquals() {
   if(divide){
     onDivide()
   }
-
   operands = []
-  result.textContent = total;
+  result.textContent = total
 
 }
 
@@ -194,35 +230,28 @@ function onReset(){
    minus = false;
    multiply = false
    divide = false
+   deleted = false
+   period = false
+   del =[]
    nM = [];
    nD =[]
    numberDivide =[]
+
 }
 
 function onPeriod(){
   result.textContent += '.'
+  period = true
 }
 
 function onDelete(){
-let d 
+operands = [Number(result.textContent)]
+let d = operands.toString()
+del = Number(d.slice(0, d.length-1))
+deleted = true
+onNumberClick()
 
-for(let i=0; i<=del.length; i+=1){
-d = del[del.length-1].toString()
 }
-
-for (let i = 0; i < d.length-1; i+=1) {
-  deleted.push(d[i])
-  
-}
-
-
-result.textContent = Number(deleted.join(''))
-operands.push(Number(result.textContent))
-console.log(operands);
-console.log(del);
-}
-
-
 
 btnNumbers.forEach(number => {
   number.addEventListener('click', onNumberClick);
@@ -239,3 +268,5 @@ btnReset.addEventListener('click', onReset)
 btnPeriod.addEventListener('click', onPeriod)
 
 btnDelete.addEventListener('click', onDelete)
+
+
