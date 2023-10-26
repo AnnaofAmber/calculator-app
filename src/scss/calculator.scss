@@ -1,18 +1,19 @@
-.result {
+.result-container{
   background-color: var(--dark-blue);
   padding-top: 29px;
   padding-right: 24px;
-  padding-left: 24px;
+  padding-left: 30px;
   padding-bottom: 22px;
   margin-top: 0;
   margin-bottom: 24px;
 
-  overflow: hidden;
+  
 
   border-radius: 10px;
 
   text-align: right;
   font-size: 40px;
+  
 
   @media only screen and (min-width: 768px) {
     padding-top: 40px;
@@ -21,15 +22,19 @@
     font-size: 56px;
   }
 }
+.result {
+margin: 0;
+
+}
 
 .body-light{
-  .result{
+  .result-container{
     background-color: var(--very-light);
   }
 }
 
 .body-violet{
-  .result{
+  .result-container{
     background-color: var(--violet);
   }
 }

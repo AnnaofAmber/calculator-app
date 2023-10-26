@@ -114,7 +114,6 @@ function onPlus() {
 }
 
 function onMinus() {
-  console.log(deleted);
   if (plus || multiply || divide || deleted) {
     plus = false;
     multiply = false;
@@ -240,8 +239,15 @@ function onReset(){
 }
 
 function onPeriod(){
+  if(operands.length === 0){
+    operands.push(0)
+    result.textContent = '0.'
+    period=true
+  }
+else{
   result.textContent += '.'
   period = true
+}
 }
 
 function onDelete(){
